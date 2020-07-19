@@ -80,6 +80,7 @@ namespace RPG.Combat
 
         public void Hit()
         {
+            if (target == null) return;
             target.TakeDamage(weaponDamage);
         }
     }
