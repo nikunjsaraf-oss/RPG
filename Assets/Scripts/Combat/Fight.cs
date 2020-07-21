@@ -62,11 +62,10 @@ namespace RPG.Combat
 
         public void Attack(GameObject enemyTarget)
         {
-            if (!target.gameObject == this.gameObject)
-            {
+         
                 GetComponent<ActionScheduler>().StartAction(this);
                 target = enemyTarget.GetComponent<Health>();
-            }
+         
         }
 
         public void Cancel()
