@@ -19,7 +19,6 @@ namespace RPG.Controller
         GameObject player;
 
         Vector3 guardPosition;
-        float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         float timeSinceLastSawPlayer = Mathf.Infinity;
         int currentWaypointIndex = 0;
 
@@ -50,16 +49,12 @@ namespace RPG.Controller
             }
             else
             {
-                GuardBehaviour();
+                PatrolBehaviour();
             }
             timeSinceLastSawPlayer += Time.deltaTime;
         }
 
-        private void GuardBehaviour()
-        {
-            mover.StartMoving(guardPosition);
-        }
-
+       
         private void AttackBehaviour()
         {
             timeSinceLastSawPlayer = 0;
@@ -78,6 +73,7 @@ namespace RPG.Controller
                 }
                 nextPosition = GetCurrentWaypoint();
             }
+            mover.StartMoving(nextPosition);
         }
 
         private Vector3 GetCurrentWaypoint()
