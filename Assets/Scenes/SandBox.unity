@@ -1421,7 +1421,7 @@ PrefabInstance:
     - target: {fileID: 2096718719991182657, guid: 373d6522573087746a84eba4da3996ea,
         type: 3}
       propertyPath: waypointTolerance
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4588483570682652992, guid: 373d6522573087746a84eba4da3996ea,
         type: 3}
