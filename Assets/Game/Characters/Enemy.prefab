@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: patrolPath
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 162069980529771792, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: waypointDwellTime
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 938121422931688236, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_Speed
@@ -20,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 2345058362334796049, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.861803
+      value: -29.98
       objectReference: {fileID: 0}
     - target: {fileID: 2345058362334796049, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
@@ -30,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 2345058362334796049, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.9331656
+      value: -49.11
       objectReference: {fileID: 0}
     - target: {fileID: 2345058362334796049, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
