@@ -58,7 +58,7 @@ namespace RPG.Controller
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoving(hit.point);
+                    GetComponent<Mover>().StartMoving(hit.point, 1f);
                 }
                 return true;
             }
