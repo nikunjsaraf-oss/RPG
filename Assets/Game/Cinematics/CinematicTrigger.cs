@@ -7,9 +7,15 @@ namespace RPG.Cinematics
 {
     public class CinematicTrigger : MonoBehaviour
     {
+        bool isAlreadyTriggered = false;
+
         private void OnTriggerEnter(Collider other)
         {
-            GetComponent<PlayableDirector>().Play();
+            if(!isAlreadyTriggered && other.gameObject.tag == "Player")
+            {
+                GetComponent<PlayableDirector>().Play();
+                isAlreadyTriggered = true;
+            }
         }
     }
 }
