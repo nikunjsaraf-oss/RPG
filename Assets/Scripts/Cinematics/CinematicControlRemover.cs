@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Playables;
 using RPG.Core;
 using RPG.Controller;
+using RPG.Saving;
 
 namespace RPG.Cinematics
 {
@@ -10,7 +11,7 @@ namespace RPG.Cinematics
     {
         GameObject player;
         private void Start()
-        { 
+        {
             GetComponent<PlayableDirector>().stopped += EnableControl;
             GetComponent<PlayableDirector>().played += DisableControl;
             player = GameObject.FindGameObjectWithTag("Player");
@@ -25,7 +26,7 @@ namespace RPG.Cinematics
         void EnableControl(PlayableDirector pD)
         {
             player.GetComponent<PlayerController>().enabled = true;
+
         }
     }
-
 } 
