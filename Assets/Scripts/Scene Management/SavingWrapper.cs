@@ -11,11 +11,16 @@ namespace RPG.SceneManagement
 
         const string defaultSaveFile = "save";
 
+        [SerializeField] float fadeInTime = 0.2f;
+
         SavingSystem savingSystem;
 
-        private void Start()
+        IEnumerator Start()
         {
-            savingSystem = GetComponent<SavingSystem>();
+            Fader fader = FindObjectOfType<Fader>();
+            fader.ImmediateFader();
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
+            yield return fader.FadeIn(fadeInTime);
         }
 
         // Update is called once per frame
@@ -34,12 +39,12 @@ namespace RPG.SceneManagement
 
         public void Save()
         {
-            savingSystem.Save(defaultSaveFile);
+            GetComponent<SavingSystem>().Save(defaultSaveFile);
         }
 
         public void Load()
         {
-            savingSystem.Load(defaultSaveFile);
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
     }
 
