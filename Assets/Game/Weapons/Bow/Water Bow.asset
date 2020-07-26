@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7278b8cf0bcf8224a98ec313dc6cb613, type: 3}
-  m_Name: Bow
+  m_Name: Water Bow
   m_EditorClassIdentifier: 
   equippedWeapon: {fileID: 297534405847533723, guid: 6e722f7ed8e13654c898f53c0d8d45d9,
     type: 3}
   animatorOverride: {fileID: 22100000, guid: d44d4aa57a8a7214a96411fc51632026, type: 2}
-  weaponRange: 10
+  weaponRange: 15
   weaponDamage: 9
   isRightHand: 0
-  projectile: {fileID: 7652738992194481674, guid: 93c113331322c57448a0ca21efb0c045,
+  projectile: {fileID: 232883500966492275, guid: 5034f27fed783224fb82fd9dc9ed7bea,
     type: 3}
