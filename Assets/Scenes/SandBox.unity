@@ -4508,7 +4508,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677431703}
-  m_LocalRotation: {x: 0.041095834, y: 0.055861026, z: -0.0023012045, w: 0.9975898}
+  m_LocalRotation: {x: 0.04109588, y: 0.055861015, z: -0.002301203, w: 0.9975898}
   m_LocalPosition: {x: 5.3883057, y: -0.15478706, z: 108.876755}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6782,6 +6782,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756493413199890013, guid: eeb5dc631e828494c8975053f7d9dc8e,
+        type: 3}
+      propertyPath: weapomOverride
+      value: 
+      objectReference: {fileID: 22100000, guid: 55728338ffa16be4989c28a0f1ccf3fa,
+        type: 2}
+    - target: {fileID: 5756493413199890013, guid: eeb5dc631e828494c8975053f7d9dc8e,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6017614329888409184, guid: eeb5dc631e828494c8975053f7d9dc8e,
         type: 3}
