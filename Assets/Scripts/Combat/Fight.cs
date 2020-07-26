@@ -8,17 +8,18 @@ namespace RPG.Combat
     {
         [SerializeField] float timeBetweenAttack = 1f;
         [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
- 
+        [SerializeField] Weapon defaultWeapon = null;
+
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
 
         private void Start()
         {
-            SpawnWeapon();
+                EquipWeapon(defaultWeapon);
         }
 
-        
+
 
         private void Update()
         {
@@ -38,18 +39,18 @@ namespace RPG.Combat
         }
 
 
-        private void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-          if(weapon == null) { return; }
-          Animator animator = GetComponent<Animator>();
-          weapon.Spawn(handTransform, animator);
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            currentWeapon.Spawn(handTransform, animator);
         }
 
 
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
-            if(timeSinceLastAttack > timeBetweenAttack)
+            if (timeSinceLastAttack > timeBetweenAttack)
             {
                 TriggerAttack();
                 timeSinceLastAttack = 0;
@@ -65,24 +66,24 @@ namespace RPG.Combat
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weapon.GetWeaponRange();
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetWeaponRange();
         }
 
 
         public bool CanAttack(GameObject enemyTarget)
         {
-            if(enemyTarget  == null) { return false; };
+            if (enemyTarget == null) { return false; };
             Health targetToTest = enemyTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
-        } 
+        }
 
 
         public void Attack(GameObject enemyTarget)
         {
-         
-                GetComponent<ActionScheduler>().StartAction(this);
-                target = enemyTarget.GetComponent<Health>();
-         
+
+            GetComponent<ActionScheduler>().StartAction(this);
+            target = enemyTarget.GetComponent<Health>();
+
         }
 
         public void Cancel()
@@ -101,7 +102,7 @@ namespace RPG.Combat
         public void Hit()
         {
             if (target == null) return;
-            target.TakeDamage(weapon.GetDamage());
+            target.TakeDamage(currentWeapon.GetDamage());
         }
     }
 }
