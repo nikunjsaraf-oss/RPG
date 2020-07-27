@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2345058362334796049}
   - component: {fileID: 2345058362334796063}
   - component: {fileID: 938121422931688236}
+  - component: {fileID: 2800989180654777114}
   - component: {fileID: 2345058362334796060}
   - component: {fileID: 2345058362334796062}
   - component: {fileID: 3994708476671154678}
@@ -105,6 +106,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2800989180654777114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2345058362334796061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a64b32f11d3a1043b8358738aedddbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingLevel: 1
+  characterClass: 0
+  progression: {fileID: 11400000, guid: 2997f2eb170073642b165f2117807bfe, type: 2}
 --- !u!114 &2345058362334796060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttack: 1
-  handTransform: {fileID: 0}
+  rightHandTransform: {fileID: 0}
+  leftHandTransform: {fileID: 0}
   defaultWeapon: {fileID: 0}
 --- !u!114 &1529170931
 MonoBehaviour:

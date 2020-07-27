@@ -1,18 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+namespace RPG.Stats
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BaseStats : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+            [Range(1, 99)]
+        [SerializeField] int startingLevel = 1;
+        [SerializeField] CharacterClass characterClass;
+        [SerializeField] Progression progression = null;
     }
 }
