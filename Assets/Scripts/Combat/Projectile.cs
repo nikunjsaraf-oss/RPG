@@ -10,6 +10,11 @@ namespace RPG.Combat
         float damage = 0;
         Health target = null;
 
+        private void Start()
+        {
+            transform.LookAt(GetAimLocation());
+        }
+
         // Update is called once per frame
         void Update()
         {
@@ -17,7 +22,7 @@ namespace RPG.Combat
             {
                 return;
             }
-            transform.LookAt(GetAimLocation());
+
             transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
         }
 
@@ -36,7 +41,7 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other) 
         {
             if(other.GetComponent<Health>() != target) return;
-
+            if(target.IsDead()) return;
             target.TakeDamage(damage);
             Destroy(gameObject);    
         }
