@@ -1,14 +1,14 @@
 ﻿using RPG.Core;
 using RPG.Movement;
-using System;
+using RPG.Saving;
 using UnityEngine;
 namespace RPG.Combat
 {
-    public class Fight : MonoBehaviour, IAction
+    public class Fight : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttack = 1f;
         [SerializeField] Transform rightHandTransform = null;
-         [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
 
         Health target;
@@ -17,7 +17,10 @@ namespace RPG.Combat
 
         private void Start()
         {
+            if(currentWeapon == null)
+            {
                 EquipWeapon(defaultWeapon);
+            }
         }
 
 
@@ -114,6 +117,18 @@ namespace RPG.Combat
         }
 
         public void Shoot() => Hit();
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
+        }
     }
 }
 

@@ -88,6 +88,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickup Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 7130273720699530670, guid: 60984608a7b97af4ca7dac5bff7a4c25,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130273720699530670, guid: 60984608a7b97af4ca7dac5bff7a4c25,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.95
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60984608a7b97af4ca7dac5bff7a4c25, type: 3}
 --- !u!4 &1900375412751045130 stripped
