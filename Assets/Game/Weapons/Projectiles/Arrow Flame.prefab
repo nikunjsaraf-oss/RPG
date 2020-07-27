@@ -92,6 +92,12 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.a
       value: 0.58431375
       objectReference: {fileID: 0}
+    - target: {fileID: 7652738992194481674, guid: 93c113331322c57448a0ca21efb0c045,
+        type: 3}
+      propertyPath: hitFX
+      value: 
+      objectReference: {fileID: 1975196927613516656, guid: 5e6b27fd19558444f9afba2af6373de0,
+        type: 3}
     - target: {fileID: 8038563602616423268, guid: 93c113331322c57448a0ca21efb0c045,
         type: 3}
       propertyPath: m_LocalPosition.x
