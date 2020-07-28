@@ -104,6 +104,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2800989180654777114, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: startingLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2908839597490915484, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_IsKinematic
