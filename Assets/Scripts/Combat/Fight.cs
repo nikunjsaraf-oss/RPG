@@ -74,6 +74,11 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetWeaponRange();
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+
 
         public bool CanAttack(GameObject enemyTarget)
         {

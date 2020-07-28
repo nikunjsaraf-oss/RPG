@@ -15,6 +15,6 @@ MonoBehaviour:
   equippedWeapon: {fileID: 0}
   animatorOverride: {fileID: 0}
   weaponRange: 2
-  weaponDamage: 6
+  weaponDamage: 5
   isRightHand: 1
   projectile: {fileID: 0}
