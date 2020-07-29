@@ -7,6 +7,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.72806835
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.135849
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.7948118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 37201
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771894423587002500, guid: a3b1fef27df38104eb04e31d8e844abe,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.9446497
+      objectReference: {fileID: 0}
     - target: {fileID: 1893526998185694586, guid: a3b1fef27df38104eb04e31d8e844abe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,7 +125,7 @@ PrefabInstance:
     - target: {fileID: 1896709307969582752, guid: a3b1fef27df38104eb04e31d8e844abe,
         type: 3}
       propertyPath: m_Name
-      value: Generic Explosion
+      value: Fireball Exp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b1fef27df38104eb04e31d8e844abe, type: 3}
