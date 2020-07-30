@@ -2,9 +2,9 @@ using UnityEngine;
 using System;
 using RPG.Resources;
 using UnityEngine.UI;
+using RPG.Combat;
 
-
-namespace RPG.Combat
+namespace RPG.HUD
 {
     public class EnemyHealthValue : MonoBehaviour
     {
@@ -25,7 +25,7 @@ namespace RPG.Combat
             }
 
             Health health = fighter.GetTarget();
-            GetComponent<Text>().text = String.Format("{0}%", health.GetPercentage());
+            GetComponent<Text>().text = String.Format("{0:0.0}%", health.GetPercentage());
         }
     }
 }

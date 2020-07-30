@@ -4917,7 +4917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 20
-  hitFX: {fileID: 1975196927613516656, guid: 5e6b27fd19558444f9afba2af6373de0, type: 3}
+  hitFX: {fileID: 3543322053558936332, guid: 731d099f825d5784ab9683b35c8015ed, type: 3}
   maxLifeTime: 10
   destroyOnHit:
   - {fileID: 5576214111752205836}

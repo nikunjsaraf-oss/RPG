@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using RPG.Resources;
 
-namespace RPG.Resources
+namespace RPG.HUD
 {
     public class HealthDisplay : MonoBehaviour
     {
@@ -15,7 +16,7 @@ namespace RPG.Resources
 
         private void Update()
         {
-            GetComponent<Text>().text = String.Format("{0}%", health.GetPercentage());
+            GetComponent<Text>().text = String.Format("{0:0.0}%", health.GetPercentage());
         }
     }
 }
