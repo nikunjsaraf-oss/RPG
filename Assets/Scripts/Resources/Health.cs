@@ -54,9 +54,14 @@ namespace RPG.Resources
             experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward)); 
         }
 
-        public float GetPercentage()
+        public float GetHealthPoints()
         {
-           return (health / GetComponent<BaseStats>().GetStat(Stat.health)) * 100;
+            return health;
+        }
+
+        public float MaxHealth()
+        {
+           return GetComponent<BaseStats>().GetStat(Stat.health);
         }
 
         private void Die()
@@ -81,6 +86,11 @@ namespace RPG.Resources
             {
                 Die();
             }
+        }
+
+        public static implicit operator string(Health v)
+        {
+            throw new NotImplementedException();
         }
     }
 

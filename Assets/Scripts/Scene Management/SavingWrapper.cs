@@ -22,7 +22,7 @@ namespace RPG.SceneManagement
         {
             Fader fader = FindObjectOfType<Fader>();
             
-            fader.ImmediateFader();
+            fader.FadeOutImmediate();
             yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
             yield return fader.FadeIn(fadeInTime);
         }
@@ -39,7 +39,7 @@ namespace RPG.SceneManagement
             {
                 Save();
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.Delete))
             {
                 Delete();
             }
