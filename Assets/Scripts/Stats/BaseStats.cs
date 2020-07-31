@@ -23,7 +23,7 @@ namespace RPG.Stats
             if(newLevel > currentLevel)
             {
                 currentLevel = newLevel;
-                print("Levelled UP!");
+                Debug.Log("Levelled UP!");
             }
         }
 
