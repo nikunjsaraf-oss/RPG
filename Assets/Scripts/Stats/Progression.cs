@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System;
 
 namespace RPG.Stats
 {
@@ -6,24 +8,47 @@ namespace RPG.Stats
     public class Progression : ScriptableObject 
     {
         [SerializeField] CharacterStats[] characterClasses = null;
-    
+
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
 
 
         public float GetStat(Stat stat, CharacterClass characterClass, int level)
         {
-            foreach (CharacterStats characterStats in characterClasses)
+            BuildLookupTable();
+            float[] levels = lookupTable[characterClass][stat];
+
+            if(levels.Length < level)
             {
-                if (characterStats.characterClass != characterClass) continue;
-
-                foreach(ProgressionStats progressionStats in characterStats.stats)
-                {
-                    if (progressionStats.stat != stat) continue;
-                    if (progressionStats.levels.Length < level) continue;
-
-                    return progressionStats.levels[level - 1];
-                }
+                return 0;
             }
-            return 0;
+
+            return levels[level - 1];
+        }
+
+        public int GetLevels(Stat stat, CharacterClass characterClass)
+        {
+            BuildLookupTable();
+            float[] levels = lookupTable[characterClass][stat];
+            return levels.Length;
+        }
+
+        private void BuildLookupTable()
+        {
+            if(lookupTable != null) { return; }
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+
+            foreach(CharacterStats characterStats in characterClasses)
+            {
+                var stackLookup = new Dictionary<Stat, float[]>();
+
+                foreach (ProgressionStats progressionStats in characterStats.stats)
+                {
+                    stackLookup[progressionStats.stat] = progressionStats.levels;
+                }
+
+                lookupTable[characterStats.characterClass] = stackLookup;
+            }
+
         }
 
         [System.Serializable]

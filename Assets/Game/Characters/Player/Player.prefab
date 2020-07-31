@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b6c7ff4f286984c849b35c8625d214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExpeirencePoints: 0
+  experiencePoints: 0
 --- !u!1001 &4224313942241979905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ PrefabInstance:
     - target: {fileID: 2800989180654777114, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: startingLevel
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2908839597490915484, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
