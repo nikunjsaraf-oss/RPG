@@ -121,6 +121,8 @@ MonoBehaviour:
   startingLevel: 1
   characterClass: 0
   progression: {fileID: 11400000, guid: 2997f2eb170073642b165f2117807bfe, type: 2}
+  levelUpEffect: {fileID: 6656316387430678121, guid: 819853e93ada66a43b3581423eeeafec,
+    type: 3}
 --- !u!114 &2345058362334796060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc5696d5575b2d48a9364f7a2a37151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
 --- !u!136 &-1657758793978401208
 CapsuleCollider:
   m_ObjectHideFlags: 0
