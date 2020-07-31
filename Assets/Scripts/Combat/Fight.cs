@@ -4,10 +4,11 @@ using RPG.Movement;
 using RPG.Saving;
 using UnityEngine;
 using RPG.Stats;
+using System.Collections.Generic;
 
 namespace RPG.Combat
 {
-    public class Fight : MonoBehaviour, IAction, ISaveable
+    public class Fight : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttack = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -116,7 +117,7 @@ namespace RPG.Combat
             if (target == null) return;
             float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
 
-            
+
             if(currentWeapon.HasProjectile())
             {
                 currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
@@ -140,6 +141,14 @@ namespace RPG.Combat
             string weaponName = (string)state;
             Weapon weapon = UnityEngine.Resources.Load<Weapon>(weaponName);
             EquipWeapon(weapon);
+        }
+
+        public IEnumerable<float> GetAdditiveModifier(Stat stat)
+        {
+            if(stat == Stat.Damage)
+            {
+                yield return currentWeapon.GetDamage();
+            }
         }
     }
 }

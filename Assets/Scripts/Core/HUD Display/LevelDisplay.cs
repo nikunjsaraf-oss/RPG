@@ -16,7 +16,7 @@ namespace RPG.HUD
 
         private void Update()
         {
-            GetComponent<Text>().text = String.Format("{0}", stats.CalculateLevel());
+            GetComponent<Text>().text = String.Format("{0}", stats.GetLevel());
         }
     }
 }
