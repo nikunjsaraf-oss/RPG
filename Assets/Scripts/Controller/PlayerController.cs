@@ -1,8 +1,7 @@
-﻿using RPG.Combat;
-using RPG.Resources;
+﻿using RPG.Resources;
 using RPG.Movement;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.AI;
 using System;
 
 namespace RPG.Controller
@@ -10,14 +9,6 @@ namespace RPG.Controller
     
     public class PlayerController : MonoBehaviour
     {
-
-        enum CursorType
-        {
-            None,
-            Movement,
-            Combat,
-            UI,
-        }
 
         [System.Serializable]
         struct CursorMapping
@@ -28,6 +19,7 @@ namespace RPG.Controller
         }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
+        [SerializeField] float maxNavMeshProjectionDistance = 1f;
 
         Health health;
         
@@ -44,70 +36,71 @@ namespace RPG.Controller
                 return;
             }
 
-          //  if (InteractWithComponent()) return;
-            if (CombatInteraction()) return;
+            if (InteractWithComponent()) return;
             if (MovementInteraction()) return;
             SetCursorType(CursorType.None);
         }
 
-        // private bool InteractWithComponent()
-        // {
-           
-        //     RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());  // Casts a ray through the Scene and returns all hits.
-        //     foreach(RaycastHit hit in hits)
-        //     {
-        //         IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
-        //         foreach(IRaycastable raycastable in raycastables)
-        //         {
-        //            if(raycastable.HandleRayCast(this))
-        //            {
-        //                 SetCursorType(CursorType.Combat);
-        //                 return true;
-        //            }
-        //         }
-        //     }
-        //     return false;
-        // }
-
-        private bool CombatInteraction()
+        private bool InteractWithComponent()
         {
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());  // Casts a ray through the Scene and returns all hits.
+           
+            RaycastHit[] hits = RaycastSorted();
             foreach(RaycastHit hit in hits)
             {
-                EnemyTarget target = hit.transform.GetComponent<EnemyTarget>();
-
-                if(target == null) { continue;  }
-
-                if (!GetComponent<Fight>().CanAttack(target.gameObject))
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                foreach(IRaycastable raycastable in raycastables)
                 {
-                    continue;   
+                   if(raycastable.HandleRayCast(this))
+                   {
+                        SetCursorType(raycastable.GetCursorType());       
+                        return true;
+                   }
                 }
-
-                if (Input.GetMouseButton(0))
-                {
-                    GetComponent<Fight>().Attack(target.gameObject);
-                }
-                SetCursorType(CursorType.Combat);
-                return true;
             }
             return false;
+        }
+
+        private RaycastHit[] RaycastSorted()
+        {
+            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());  // Casts a ray through the Scene and returns all hits.
+            float[] distances = new float[hits.Length];
+            for (int i = 0; i < hits.Length; i++)
+            {
+                distances[i] = hits[i].distance;
+            }
+            Array.Sort(distances, hits);
+            return hits;
         }
 
         private bool MovementInteraction()
         {
            
-            RaycastHit hit;         // Creates a ray starting at origin along direction.
-            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            Vector3 target;
+            bool hasHit = RaycastNavMesh(out target);
+
             if (hasHit)
             {
                 if (Input.GetMouseButton(0))
                 {
-                    GetComponent<Mover>().StartMoving(hit.point, 1f);
+                    GetComponent<Mover>().StartMoving(target, 1f);
                 }
                 SetCursorType(CursorType.Movement);
                 return true;
             }
                 return false;
+        }
+
+        private bool RaycastNavMesh(out Vector3 target)
+        {
+            target = new Vector3();
+            RaycastHit hit;         // Creates a ray starting at origin along direction.
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            if(!hasHit) return false;
+            NavMeshHit navMeshHit;
+            bool hasCastToNavMesh = NavMesh.SamplePosition(hit.point, out navMeshHit, maxNavMeshProjectionDistance, NavMesh.AllAreas);
+            if(!hasCastToNavMesh) return false;
+            target = navMeshHit.position;
+            return true;
         }
 
         private void SetCursorType(CursorType type)
