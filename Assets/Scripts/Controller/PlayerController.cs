@@ -1,84 +1,29 @@
 ﻿using RPG.Combat;
 using RPG.Resources;
 using RPG.Movement;
+using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace RPG.Controller
 {
     
     public class PlayerController : MonoBehaviour
     {
-
-        enum CursorType
-        {
-            None,
-            Movement,
-            Combat,
-            UI,
-        }
-
-        [System.Serializable]
-        struct CursorMapping
-        {
-            public CursorType type;
-            public Texture2D texture;
-            public Vector2 hotspot;
-        }
-
-        [SerializeField] CursorMapping[] cursorMappings = null;
-
         Health health;
-        
         private void Start()
         {
             health = GetComponent<Health>();
         }
         void Update()
         {
-            if(UIInteraction())
-            {
-                return;
-            }
             if (health.IsDead())
             {
-                SetCursorType(CursorType.None);
                 return;
             }
 
-            if (InteractWithComponent()) return;
             if (CombatInteraction()) return;
             if (MovementInteraction()) return;
-            SetCursorType(CursorType.None);
-        }
-
-        private bool InteractWithComponent()
-        {
-           
-            RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());  // Casts a ray through the Scene and returns all hits.
-            foreach(RaycastHit hit in hits)
-            {
-                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
-                foreach(IRaycastable raycastable in raycastables)
-                {
-                   if(raycastable.HandleRayCast(this))
-                   {
-                        SetCursorType(CursorType.Combat);
-                        return true;
-                   }
-                }
-            }
-            return false;
-        }
-
-        private bool UIInteraction()
-        {
-            if(EventSystem.current.IsPointerOverGameObject())
-            {
-                SetCursorType(CursorType.UI);
-                return true;
-            }
-            return false;
         }
 
         private bool CombatInteraction()
@@ -99,7 +44,6 @@ namespace RPG.Controller
                 {
                     GetComponent<Fight>().Attack(target.gameObject);
                 }
-                SetCursorType(CursorType.Combat);
                 return true;
             }
             return false;
@@ -116,31 +60,12 @@ namespace RPG.Controller
                 {
                     GetComponent<Mover>().StartMoving(hit.point, 1f);
                 }
-                SetCursorType(CursorType.Movement);
                 return true;
             }
                 return false;
         }
 
-        private void SetCursorType(CursorType type)
-        {
-            CursorMapping mapping = GetCursorMapping(type);
-            Cursor.SetCursor(mapping.texture, mapping.hotspot, CursorMode.Auto);
-
-        }
-
-        private CursorMapping GetCursorMapping(CursorType type)
-        {
-            foreach (CursorMapping mapping in cursorMappings)
-            {
-                if(mapping.type == type)
-                {
-                    return mapping;
-                }
-            }
-            return cursorMappings[0];
-        }
-
+      
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);

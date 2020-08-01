@@ -1,42 +1,36 @@
-﻿using RPG.Saving;
-using System.Collections;
+﻿using System.Collections;
+using RPG.Saving;
 using UnityEngine;
 
 namespace RPG.SceneManagement
 {
     public class SavingWrapper : MonoBehaviour
     {
-
         const string defaultSaveFile = "save";
 
         [SerializeField] float fadeInTime = 0.2f;
-
-        SavingSystem savingSystem;
-
+        
         private void Awake() 
         {
             StartCoroutine(LoadLastScene());
         }
 
-        private IEnumerator LoadLastScene()
+        private IEnumerator LoadLastScene() 
         {
-            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
             Fader fader = FindObjectOfType<Fader>();
             fader.FadeOutImmediate();
+            yield return GetComponent<SavingSystem>().LoadLastScene(defaultSaveFile);
             yield return fader.FadeIn(fadeInTime);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                Load();
-            }
-
+        private void Update() {
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Save();
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Load();
             }
             if (Input.GetKeyDown(KeyCode.Delete))
             {
@@ -44,9 +38,9 @@ namespace RPG.SceneManagement
             }
         }
 
-        private void Delete()
+        public void Load()
         {
-            GetComponent<SavingSystem>().Delete(defaultSaveFile);
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
 
         public void Save()
@@ -54,10 +48,9 @@ namespace RPG.SceneManagement
             GetComponent<SavingSystem>().Save(defaultSaveFile);
         }
 
-        public void Load()
+        public void Delete()
         {
-            GetComponent<SavingSystem>().Load(defaultSaveFile);
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
         }
     }
-
 }

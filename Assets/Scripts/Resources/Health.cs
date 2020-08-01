@@ -9,8 +9,9 @@ namespace RPG.Resources
     {
         [SerializeField] float RegenerateHealthPercentage = 70;
  
-        float health = -1;
+        float healthPoints = -1;
         bool isDead = false;
+
 
         private float GetInitaialHealth()
         {
@@ -19,26 +20,17 @@ namespace RPG.Resources
 
         private void Start()  
         {
-           if (health < 0)
+            GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+           if (healthPoints < 0)
             {
-                health = GetComponent<BaseStats>().GetStat(Stat.health);
+                healthPoints = GetComponent<BaseStats>().GetStat(Stat.health);
             }
-        }
-
-        private void OnEnable()
-        {
-             GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
-        }
-
-        private void OnDisable() 
-        {
-             GetComponent<BaseStats>().OnLevelUp -= RegenerateHealth;    
         }
 
         private void RegenerateHealth()
         {
             float RegenerateHealthPoints = (GetComponent<BaseStats>().GetStat(Stat.health) * RegenerateHealthPercentage) / 100;
-            health = Mathf.Max(health, RegenerateHealthPoints);
+            healthPoints = Mathf.Max(healthPoints, RegenerateHealthPoints);
         }
 
         public bool IsDead()
@@ -50,8 +42,8 @@ namespace RPG.Resources
 
         public void TakeDamage(GameObject instigator, float damage)
         {
-            health = Mathf.Max(health - damage, 0);
-            if(health == 0)
+            healthPoints = Mathf.Max(healthPoints - damage, 0);
+            if(healthPoints == 0)
             {
                 Die();
                 AwardExperience(instigator);
@@ -68,7 +60,7 @@ namespace RPG.Resources
 
         public float GetHealthPoints()
         {
-            return health;
+            return healthPoints;
         }
 
         public float MaxHealth()
@@ -87,14 +79,14 @@ namespace RPG.Resources
 
         public object CaptureState()
         {
-            return health;
+            return healthPoints;
         }
 
         public void RestoreState(object state)
         {
-            health = (float)state;
+            healthPoints = (float)state;
 
-            if(health == 0)
+            if(healthPoints == 0)
             {
                 Die();
             }
