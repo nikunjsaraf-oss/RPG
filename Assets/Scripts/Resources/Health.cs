@@ -2,7 +2,6 @@
 using RPG.Saving;
 using RPG.Core;
 using UnityEngine;
-using System;
 
 namespace RPG.Resources
 {
@@ -10,17 +9,30 @@ namespace RPG.Resources
     {
         [SerializeField] float RegenerateHealthPercentage = 70;
  
-        float health = -1f;
+        float health = -1;
         bool isDead = false;
 
-        private void Start() 
+        private float GetInitaialHealth()
         {
-            GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+            return GetComponent<BaseStats>().GetStat(Stat.health);
+        }
 
-            if(health < 0)
+        private void Start()  
+        {
+           if (health < 0)
             {
                 health = GetComponent<BaseStats>().GetStat(Stat.health);
             }
+        }
+
+        private void OnEnable()
+        {
+             GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
+        }
+
+        private void OnDisable() 
+        {
+             GetComponent<BaseStats>().OnLevelUp -= RegenerateHealth;    
         }
 
         private void RegenerateHealth()
@@ -34,7 +46,7 @@ namespace RPG.Resources
             return isDead;
         }
 
-       
+      
 
         public void TakeDamage(GameObject instigator, float damage)
         {
@@ -87,11 +99,5 @@ namespace RPG.Resources
                 Die();
             }
         }
-
-        public static implicit operator string(Health v)
-        {
-            throw new NotImplementedException();
-        }
     }
-
 }
