@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.90588236, g: 0.4117647, b: 0.38039216, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.005
@@ -3125,7 +3125,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066958979}
-  m_LocalRotation: {x: 0.2156593, y: -0.16781193, z: 0.037650924, w: 0.96120375}
+  m_LocalRotation: {x: 0.2156593, y: -0.1678119, z: 0.037650913, w: 0.96120375}
   m_LocalPosition: {x: 5, y: 1.5100002, z: -9.529999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4300,7 +4300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399383661}
   m_LocalRotation: {x: -0.53065974, y: 0.46733302, z: 0.4673331, w: 0.53065985}
-  m_LocalPosition: {x: 83.2, y: 0.40999997, z: 96.5}
+  m_LocalPosition: {x: 86.4, y: 0.40999997, z: 97.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1933457654}
@@ -7654,10 +7654,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95154452965765233, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669875543116632226, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040021952444415496, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301083469114932489, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132210843237610131, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3402752950742228508, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794269830952707527, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331921262604020492, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7949431886030953904, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
         type: 3}
       propertyPath: m_Name
       value: Pickups
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949431886030953904, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7949431886030953905, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
         type: 3}
@@ -7712,6 +7757,11 @@ PrefabInstance:
     - target: {fileID: 7949431886030953905, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282127374207863723, guid: bb2ff8d6f1cd55541a4b4de11709ca07,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
