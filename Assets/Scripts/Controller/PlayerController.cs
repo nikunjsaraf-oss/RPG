@@ -1,4 +1,4 @@
-﻿using RPG.Resources;
+﻿using RPG.Attributes;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.AI;

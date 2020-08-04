@@ -1,6 +1,6 @@
 using UnityEngine;
 using System;
-using RPG.Resources;
+using RPG.Attributes;
 using UnityEngine.UI;
 using RPG.Combat;
 

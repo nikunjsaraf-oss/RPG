@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
-using RPG.Resources;
+using RPG.Attributes;
 
 namespace RPG.HUD
 {

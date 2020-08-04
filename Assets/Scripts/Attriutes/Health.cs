@@ -2,8 +2,9 @@
 using RPG.Saving;
 using RPG.Core;
 using UnityEngine;
+using System;
 
-namespace RPG.Resources
+namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -61,6 +62,16 @@ namespace RPG.Resources
         public float GetHealthPoints()
         {
             return healthPoints;
+        }
+
+        public float GetPercentage()
+        {
+            return 100 * GetFraction();
+        }
+
+        public float GetFraction()
+        {
+            return (healthPoints / GetComponent<BaseStats>().GetStat(Stat.health));
         }
 
         public float MaxHealth()
