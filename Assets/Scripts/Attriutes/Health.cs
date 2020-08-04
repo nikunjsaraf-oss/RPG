@@ -2,13 +2,15 @@
 using RPG.Saving;
 using RPG.Core;
 using UnityEngine;
-using System;
+using UnityEngine.Events;
 
 namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float RegenerateHealthPercentage = 70;
+        [SerializeField] UnityEvent takeDamage;
+        [SerializeField] UnityEvent onDie;
  
         float healthPoints = -1;
         bool isDead = false;
@@ -22,7 +24,7 @@ namespace RPG.Attributes
         private void Start()  
         {
             GetComponent<BaseStats>().OnLevelUp += RegenerateHealth;
-           if (healthPoints < 0)
+            if (healthPoints < 0)
             {
                 healthPoints = GetComponent<BaseStats>().GetStat(Stat.health);
             }
@@ -46,8 +48,12 @@ namespace RPG.Attributes
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             if(healthPoints == 0)
             {
+                onDie.Invoke();
                 Die();
                 AwardExperience(instigator);
+            }
+            else{
+                takeDamage.Invoke();
             }
         }
 

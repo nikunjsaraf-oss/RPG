@@ -25,6 +25,8 @@ MonoBehaviour:
   - type: 4
     texture: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
     hotspot: {x: 0, y: 0}
+  maxNavMeshProjectionDistance: 1
+  maxNavMeshPathLength: 40
 --- !u!114 &7625488900799298493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,6 +52,11 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 5.662317
       objectReference: {fileID: 0}
+    - target: {fileID: 2313723143959088417, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c67b8f28ccb1a184cba5b958315fb75f, type: 3}
     - target: {fileID: 2345058362334796049, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -194,6 +201,11 @@ PrefabInstance:
       propertyPath: leftHandTransform
       value: 
       objectReference: {fileID: 4848154194409882177}
+    - target: {fileID: 8303430356673220733, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9162400785153840796, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: health
