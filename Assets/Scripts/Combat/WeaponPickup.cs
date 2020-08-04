@@ -8,6 +8,7 @@ namespace RPG.Combat
     {
         [SerializeField] Weapon weapon = null;
         [SerializeField] float respawnTime = 5f;
+        [SerializeField] float restoreHealth = 0f;
 
         private void OnTriggerEnter(Collider other) 
         {
