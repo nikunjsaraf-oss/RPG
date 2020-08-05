@@ -19,7 +19,7 @@ namespace RPG.Combat
                 return false;
             }
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 callingController.GetComponent<Fight>().Attack(gameObject);
             }

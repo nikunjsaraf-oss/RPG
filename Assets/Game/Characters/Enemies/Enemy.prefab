@@ -107,6 +107,11 @@ PrefabInstance:
       propertyPath: startingLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3929972289274746908, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3994708476671154678, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: weaponDamage
@@ -139,6 +144,11 @@ PrefabInstance:
       propertyPath: leftHandTransform
       value: 
       objectReference: {fileID: 2389311027790487147}
+    - target: {fileID: 8303430356673220733, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9162400785153840796, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: health
@@ -252,6 +262,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4588483570682652992}
     m_Modifications:
+    - target: {fileID: 1670951084963237187, guid: d6612db5264278b42bae0163fc6bc794,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2589074870540903542, guid: d6612db5264278b42bae0163fc6bc794,
         type: 3}
       propertyPath: m_Name

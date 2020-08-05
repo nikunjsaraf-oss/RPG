@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WaterBall
   m_EditorClassIdentifier: 
   equippedWeapon: {fileID: 0}
-  animatorOverride: {fileID: 22100000, guid: d44d4aa57a8a7214a96411fc51632026, type: 2}
+  animatorOverride: {fileID: 22100000, guid: 758e236be59c744459ebfaeef5dbe806, type: 2}
   weaponRange: 12
   weaponDamage: 8
   percentageBonus: 2
-  isRightHand: 0
+  isRightHand: 1
   projectile: {fileID: 8662307480360125198, guid: 543483a81f175b2489eca56cc202cd7f,
     type: 3}

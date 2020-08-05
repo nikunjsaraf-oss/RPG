@@ -6,6 +6,7 @@ namespace RPG.Stats
         CombatSoldier,
         Archer,
         SwordsMan,
-        FlameThrower
+        FlameThrower,
+        Boss,
     }
 }
