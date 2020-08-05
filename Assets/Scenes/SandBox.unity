@@ -5644,7 +5644,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 318995292, guid: 93ac39eee9da10640bf27b2c946addac, type: 3}
       propertyPath: loadScene
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 318995292, guid: 93ac39eee9da10640bf27b2c946addac, type: 3}
       propertyPath: destination
@@ -7182,7 +7182,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 318995292, guid: 93ac39eee9da10640bf27b2c946addac, type: 3}
       propertyPath: loadScene
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 318995292, guid: 93ac39eee9da10640bf27b2c946addac, type: 3}
       propertyPath: destination

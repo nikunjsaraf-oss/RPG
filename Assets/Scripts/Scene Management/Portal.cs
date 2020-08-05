@@ -27,7 +27,8 @@ namespace RPG.SceneManagement
         {
            if(other.tag == "Player")
             {
-                StartCoroutine(Transition());
+                //StartCoroutine(Transition());
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
 
