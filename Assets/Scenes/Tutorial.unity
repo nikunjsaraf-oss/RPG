@@ -811,7 +811,8 @@ MonoBehaviour:
     want to acquire. Once acquired and if you change it with another weapon, you
     have to pick the previous weapon again.\n* To attack an enemy, simply tap on
     the weapon to start attacking and to stop move the player similarly as you did
-    by he first step!\n"
+    by he first step!\n* If you die you have to force quit the game and if you manage
+    to kill the boss just goforward towards the end to end the game."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -861,7 +862,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 473
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -885,12 +886,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1971861643}
-    characterCount: 398
+    characterCount: 525
     spriteCount: 0
-    spaceCount: 80
-    wordCount: 75
+    spaceCount: 107
+    wordCount: 102
     linkCount: 0
-    lineCount: 8
+    lineCount: 10
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

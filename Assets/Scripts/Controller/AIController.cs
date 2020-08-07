@@ -17,6 +17,8 @@ namespace RPG.Controller
         [SerializeField] float waypointDwellTime = 3f;
         [Range(0, 1)]
         [SerializeField] float patrolSpeedFraction = 0.2f;
+        [SerializeField] float shoutDistance = 5f;
+        [SerializeField] bool isAggressive = true;
 
         Fight fighter;
         Mover mover;
@@ -78,6 +80,19 @@ namespace RPG.Controller
         {
             timeSinceLastSawPlayer = 0;
             fighter.Attack(player);
+
+            AggrevatenearbyEnemies();
+        }
+
+        private void AggrevatenearbyEnemies()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(transform.position,shoutDistance, Vector3.up, 0);
+            foreach(RaycastHit hit in hits)
+            {
+                AIController aI = hit.collider.GetComponent<AIController>();
+                if(aI == null) continue;
+               aI.Aggrevate();
+            }
         }
 
         private void PatrolBehaviour()
@@ -123,7 +138,14 @@ namespace RPG.Controller
         private bool IsAggrevated()
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            return distanceToPlayer < chaseDistance || timeSinceAggrevated < aggroCoolDownTime;
+            if(isAggressive)
+            {
+                return distanceToPlayer < chaseDistance || timeSinceAggrevated < aggroCoolDownTime;
+            }
+            else
+            {
+                return distanceToPlayer < chaseDistance;
+            }
         }
 
         private void OnDrawGizmosSelected()

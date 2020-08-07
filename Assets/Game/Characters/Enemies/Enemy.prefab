@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: waypointDwellTime
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 162069980529771792, guid: 298788cb2ca93674d8e0dbb915965446,
+        type: 3}
+      propertyPath: aggroCoolDownTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 938121422931688236, guid: 298788cb2ca93674d8e0dbb915965446,
         type: 3}
       propertyPath: m_Speed
